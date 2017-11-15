@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Binding";
+}
+
+<h2>Binding</h2>
+
+@*Przykład działania Model Binding. Kontroler sparsuje elementy formularza do klasy Album*@
+<form method="post" action="/Form/GetAlbum">
+    <p>Name</p>
+    <input type="text" name="Name" />
+    <p>Id</p>
+    <input type="text" name="Id" />
+    <p>Artist Name</p>
+    <input type="text" name="Artist.Name" />
+    <input type="submit" />
+</form>
