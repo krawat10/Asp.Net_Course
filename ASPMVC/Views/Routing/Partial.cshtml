@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Partial";
+}
+
+<h2>Partial</h2>
+
+@*Sposoby zwracania partial viewów (w drugim wykonujemy kontroler i możemy użyć kodu z modelu)*@
+@Html.Partial("_NazwaPartialViewu", "Model do przedłania (listy itp)")
+
+@Html.Action("NazwaAkcji", "NazwaKontrolera", new { Jakies = 0, Dane = 1 }) 
+
+@*Reszta przykładów jest w ~/Partial/ChandedIndex*@

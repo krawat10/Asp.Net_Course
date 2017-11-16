@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ASPMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,17 +27,5 @@ namespace ASPMVC.Controllers
             ///to można na przykład sprawdzić w Fidlerze. Response jest primitywną formą zwracania Requestu
             Response.Write(a.ToString());
         }
-    }
-
-    public class Album
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public Artist Artist { get; set; }
-    }
-
-    public class Artist
-    {
-        public string Name { get; set; }
     }
 }

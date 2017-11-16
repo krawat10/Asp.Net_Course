@@ -1,0 +1,4 @@
+﻿@model decimal?
+@*Ten element bedzie używany w EditorFor zawsze gdy użyjemy pola o nazwie Decimal(jak nazwa widoku).
+Przydatne do tworzenia własnych elementów HTML pod specjalny model*@
+@Html.TextBox(string.Empty, Model.HasValue ? Model.Value.ToString("#,0.0000#") : String.Empty)

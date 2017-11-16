@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "ChangedIndex";
+}
+
+<h2>ChangedIndex</h2>
+
+@*Przekazanie partial Viewu bez modelu*@
+@Html.Partial("_PartialStat")
+
+@{ 
+    string message = "dane z głównego widoku";
+}
+
+@*Przekazanie partial Viewu z modelem*@
+@Html.Partial("_PartialStat", message)
+
+@*Przekazanie partial view z poziomu kontrolera. Nie musimy podawać nazwy kontrolera, bo jest ten sam co na tej stronie*@
+@Html.Action("PartialViewSample");

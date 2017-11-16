@@ -7,6 +7,7 @@ namespace ASPMVC.Models
 {
     public class MyModel
     {
+        public string Name;
         public string Message;
     }
 }

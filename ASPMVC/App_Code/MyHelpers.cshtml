@@ -1,0 +1,5 @@
+﻿
+@helper CalcAndFormat(int a, int b, Func<int, int, int> calc) { 
+var sum = calc(a, b);
+    <p>Result: @sum</p>
+    }

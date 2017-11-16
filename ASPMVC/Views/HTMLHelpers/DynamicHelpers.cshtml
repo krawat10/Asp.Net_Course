@@ -1,0 +1,55 @@
+﻿@model ASPMVC.Models.HelpersModel
+
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+
+@*Normalnie to sami musimy decydować jaki rodzaj inputa użyć*@
+<h2>Zwykle helpery</h2>
+@Html.CheckBoxFor(m => m.Bool)
+@Html.TextBoxFor(m => m.DateTime)
+@Html.TextBoxFor(m => m.Decimal)
+@Html.TextBoxFor(m => m.String)
+
+@*EditorFor rozwiązuje ten problem dopasowując elementy HTML pod model*@
+<h2>Użycie EditorFor</h2>
+@Html.EditorFor(m => m.Bool)
+@Html.EditorFor(m => m.DateTime) @*<- Tu pojawi się kalendarz bo zdefiniowaliśmy UIHint dla tego pola w modelu pod DateTimePicker*@
+@Html.EditorFor(m => m.Decimal)  @*<- Ta kontrolka została zdefiniowana w ~\Views\Shared\EditorTemplates\Decimal.cshtml*@
+@Html.EditorFor(m => m.String)
+
+@*DisplayFor rozwiązuje problem prezentacji danych i dopasowuje element html pot model*@
+<h2>Użycie DisplayFor</h2>
+@Html.DisplayFor(m => m.Bool)
+@Html.DisplayFor(m => m.DateTime)
+@Html.DisplayFor(m => m.Decimal)
+@Html.DisplayFor(m => m.String)
+
+@*Tutaj odnosimy się do ~/Views/Shared/EditorTemplate/HelpersModel aby zaprezentować cały model renderowaany tam*@
+<h2>Użycie DisplayFor dla całego modelu</h2>
+@Html.EditorFor(m => m)
+
+@*Tudaj odwołujemy się do własnego helpera (zdefiniowanego w ~\Helpers\ImageHelper)*@
+<h2>Przykład użycia własnego helpera</h2>
+@using ASPMVC.Helpers
+@Html.Image("myId", "http://www.asp.net/images/ui/asplogo-new.png")
+
+@*Możemy też definiować lokalne helpery prosto w widoku*@
+@helper Highlight(string value)
+{
+if (value != null)
+{
+        <span style="background-color: yellow">
+            @value
+        </span>
+}
+else
+{
+        <span>no content</span>
+}
+}
+
+@Highlight("Przykład użycia helpera zdefiniowanego w widoku!")
+
+@*Użycie helpera zdefiniowanego w ~App_Code\MyHelpers.cshtml*@
+@MyHelpers.CalcAndFormat(2, 3, (a,b) => a*b)

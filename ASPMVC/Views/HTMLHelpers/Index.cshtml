@@ -1,0 +1,37 @@
+﻿@model ASPMVC.Models.MyModel
+
+@*
+@{ 
+    Html.Partial("_MyPartialView"); //Renderuje jakis partial view
+    Html.Action("akcja");  //Wykonuje jakiś kontroler
+    Html.ActionLink("tekst linku", "akcja", "kontroler"); //tworzy jakiś url <a href .. />
+    Url.Action("akcja", "kontroler"); //tworzy tylko link
+    Url.Content("~/Content/site.css"); //zwraca adres. Dodaje statyczne elementy
+    Html.Hidden("hiddenElement", "1"); //hidden input 
+    Html.Password("password"); //input z passami
+    Html.Raw("<p>jakis value</p>"); //wstawianie htmlu z jakieś zmiennej C#. Bez enkodowania!
+}
+*@
+
+@using (@Html.BeginForm("akcja", "kontroler"))
+{
+    <table>
+        <tr>
+            <td>@Html.LabelFor(o => o.Name, "Nazwa:")</td>
+            <td>@Html.TextBoxFor(o => o.Name)</td>
+            @*Komunikator walidacyjny*@
+            <td>@Html.ValidationMessageFor(o => o.Name)</td>
+        </tr>
+    </table>
+    @Html.ValidationSummary()
+}
+
+@*Tworzenie formularzy przez skadnie Razor. *@
+@*W tym przypadku mamy zgodność z modelem (który zostanie przesłany do kontrolera jako klasa MyModel)*@
+@using (@Html.BeginForm())
+{
+    @Html.LabelFor(o => o.Name, "Nazwa:")
+    @Html.TextBoxFor(o => o.Name)
+
+    <input type="submit" />
+}

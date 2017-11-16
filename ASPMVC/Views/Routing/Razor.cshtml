@@ -1,0 +1,42 @@
+﻿@model List<ASPMVC.Models.Courses>
+@{
+    ViewBag.Title = "Razor";
+    //Wybranie layoutu
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts
+{
+    @*Tutaj jest sekcja ktróta bedzie dodana do layoutu (jeśli sekcja script jest tam zdefiniowana)*@
+    <script></script>
+}
+
+<h2>Razor</h2>
+@*znacznik <text> pozwala na przełączenie ze składni razor na zwykły tekst (tutaj zrobienie atrybutu)*@
+
+
+<ul>
+    @for (int i = 0; i < 10; i++)
+    {
+        if (i % 2 == 0)
+        {
+            <li>Numer parzysty @i</li>
+        }
+        else
+        {
+            <li>Numer nieparzysty @i</li>
+        }
+    }
+</ul>
+
+<span @if (Model.Count() != 0) { <text> style="display: none" </text> }>Brak kursów</span>
+<ul>
+    @if(Model.Count() == 0)
+    {
+        int i = 0; //Przed pierwszym elementem HTML można używać C#
+        <li>Brak kursów(Tu nie można użyć C#)</li>
+    }
+    @foreach(var course in Model)
+    {
+        <li>Nazwa: @course.Name, Opis: @course.Description</li>
+    }
+</ul>
