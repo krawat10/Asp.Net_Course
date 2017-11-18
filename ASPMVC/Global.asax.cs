@@ -1,9 +1,11 @@
-﻿using ASPMVC.Infastructure;
+﻿using ASPMVC.App_Start;
+using ASPMVC.Infastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace ASPMVC
@@ -15,9 +17,10 @@ namespace ASPMVC
     {
         protected void Application_Start()
         {
+            
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
+            
             //Enginów może być dużo. Pierwszy w liscie (jeśli dane pasują)
             //bedzie wykonywany, jeśli nie da rady - następny. Mogą to być NAML(Ruby), Spark, Nvelocity(Java) itp.
             //Czasami jest do tego potrzeba, gdy np. musimy zwrócić dane które wymagają pewnego przekształcenia (strona w XML).
@@ -26,7 +29,8 @@ namespace ASPMVC
             //ViewEngines.Engines.Add(new MyViewEngine());
 
             //Zaaplikowanie filtra [TimerAttribiute] do każdej strony
-            GlobalFilters.Filters.Add(new TimerAttribiute());     
+            GlobalFilters.Filters.Add(new TimerAttribiute());
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
         

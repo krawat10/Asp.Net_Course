@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ASPMVC.Models.Person>
+
+@{
+    ViewBag.Title = "AjaxDemo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AjaxDemo</h2>
+
+<form id="search-form" 
+      method="get" @*Dla search query działa bardzo bardzo szybko (i nawet bez obsługi ajax)*@
+      data-ajax="true"  @*zezwolenie na ajax*@
+      data-ajax-target="#personlist-section" @*w który element wpisać wynik (jest w partialu)*@
+      data-ajax-update="#personlist-section">
+        <input 
+               id="SearchQuery"  
+               name="searchQuery" 
+               data-autocomplete-source="@Url.Action("PersonSuggestion")" @*(autocomplete) nazwa akcji do podpowiedzi*@
+               placeholder="Wprowadź imię lub nazwisko..."  @*Wprowadzenie tekstu na szaro*@
+               style="width: 200px" />
+        <input type="submit" value="Filtruj" /> @*Nie wysyła klasycznego formularza (tylko przez ajax)*@
+    </form>
+
+@Html.Partial("_PersonList")
+
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.js"></script> @*Element autocomplete*@
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script> @*NuGet*@
+
+<script>
+    var setupAutoComplete = function () {
+        var $input = $('#SearchQuery');
+
+        var options = {
+            //funkcja potrzebna przy wybieraniu podpowiedzi (jak w google)
+            source: $input.attr('data-autocomplete-source'),
+            select: function (event, ui) {  //co się stanie jak kliknę w podpowiedz
+                var $input = $('#SearchQuery'); //wybranie inputa
+                $input.val(ui.item.label);  //wpisanie tej podpowiedzi do niego
+                var $form = $input.parent("form:first");    //wybranie elementu formularza (rodzic)
+                $form.submit(); //submitowanie formularza
+            }
+        }
+
+        $input.autocomplete(options);   
+    }
+
+    setupAutoComplete();
+</script>
+

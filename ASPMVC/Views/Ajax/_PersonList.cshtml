@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ASPMVC.Models.Person>
+
+<div id="personlist-section">
+    <table class="table">
+        <tr>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+        </tr>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+            </tr>
+        }
+    </table>
+</div>

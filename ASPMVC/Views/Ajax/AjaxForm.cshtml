@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "AjaxForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AjaxForm</h2>
+@*Tutaj jest przykład formularza który wysyła asynchroniczne zapytanie do 
+kontrolera (nie zdefiniowaliśmy nazwy ale kontroler ma tą samą nazwe co strona czyli: AjaxForm(Album a))
+Odpowiedz pojawi się w elemencie o id "formresult"*@
+@using System.Web.Mvc.Ajax
+@model ASPMVC.Models.Album
+@using (Ajax.BeginForm(new AjaxOptions()
+{
+    HttpMethod = "POST",
+    OnSuccess = "ProcessAndUpdate"
+}))
+{
+    @Html.LabelFor(m => m.Id)
+    @Html.TextBoxFor(m => m.Id)
+
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+
+    @Html.LabelFor(m => m.Artist.Name)
+    @Html.TextBoxFor(m => m.Artist.Name)
+
+    <input type="submit" />
+}
+
+<div id="formresult"></div>
+
+@*Przetwarzanie rządania w JS (przesłany JSON)*@
+
+@*Tworzymy szablon pod zwracane dane JS(musimy użyć biblioteki mustache.js)*@
+<script id="albumtmpl" type="text/template">
+    <h1>{{Name}}</h1>
+    <h1>{{Artist.Name}}</h1>
+    <h1>{{Id}}</h1>
+</script>
+
+@*Funkcja wykona się po przedłaniu odpowiedzi*@
+<script>
+    //Funkcja musi być zdefiniowana (nazwa funkcji) w AjaxOptions.OnSuccess
+    function ProcessAndUpdate(data) {
+        var template = $("#albumtmpl").html();  //Nasz szblon (wyżej)
+        var html = Mustache.to_html(template, data);
+        $("#formresult").html(html);
+    }
+</script>
+
+@*Niezbędne skrypty*@
+<script src="@Url.Content("~/Scripts/jquery-1.12.4.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+<script src="~/Scripts/mustache.js"></script>
+
+

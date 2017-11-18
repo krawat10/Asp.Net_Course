@@ -1,0 +1,24 @@
+﻿TESTOWANIE WIDOKÓW
+
+Browse witch -> wybierz 2 przeglądarki domyślne -> przy debugowaniu otwierają sie 2 przeglądarki
+
+Google Chrome - Web Essentials + Browser Link Inspector 2017 - do inspect i debug 
+
+
+ctrl+alt+enter - synchronizacja zmian w VS z chrome
+
+ctrl+alt+i - inspect mode (chrome)
+
+ctrl+alt+d - design mode (chrome)
+
+Web Essential wsppółpracuje z VS15
+
+Inne ciekawe rzeczy Web Essential:
+
+-walidacja plików css
+-minifikacja js i css
+-zen coding (read about it!)
+-lorem10 + tab wygeneruje 10 losowych słów div#page>div.logo+ul#navigation>li*4>a + Enter stworzy div z divem i ul(+4li) w srodku
+-najechanie na klase css i F12 - przejscie do pliku
+-nagrywanie strony i wyszukiwanie nieużywanych css
+-warningi i message na temat błedów css i dobrych praktyk

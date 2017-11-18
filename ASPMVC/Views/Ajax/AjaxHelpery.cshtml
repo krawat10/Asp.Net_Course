@@ -1,0 +1,44 @@
+﻿
+@{
+    
+    ViewBag.Title = "AjaxHelpery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>AjaxHelpery</h2>
+
+
+@*Microsoftowe ajax'owe helpery tworzą specjalne elemnty HTML5 zamiast kodu JS <a data-ajax="true" href="#" />
+    Aby użyć Ajax.ActionLink należy pobrać NuGet Microsoft.jQuery.Unobtrusive.Ajax i dodać oodpowienie skrypty (poniżej) *@
+@using System.Web.Mvc.Ajax
+
+@Ajax.ActionLink("Pobierz czas!!", "GetTime", new AjaxOptions()
+{
+    UpdateTargetId = "target",
+    LoadingElementId = "loading",
+    HttpMethod = "GET"
+})
+
+@*Element gdzie trafi odpowiedz*@
+<div id="target"></div>
+
+@*Podczas ładowania ten element nie bedzie ukryty*@
+<div id="loading" style="display: none">Prosze czekać...</div> 
+
+@*Niezbędne skrypty*@
+<script src="@Url.Content("~/Scripts/jquery-1.12.4.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+
+
+@*Formularz który wysyła asynchroniczne zapytani*@
+@Ajax.BeginForm("Json", new AjaxOptions() {
+    UpdateTargetId = "someId", //Który element mamy zaaktualizować
+    AllowCache = true,  //Zezwól na ciasteczka
+    OnComplete = "doneFunction", //Nazwa funkcji JS jaka zostanie wykonana przy powodzeniu
+    OnBegin = "FunkcjaPrzedWysłaniem",
+    OnFailure = "Gdy jest błąd",
+    InsertionMode = InsertionMode.Replace, //Jak ma być wstawiony przesłany element (tutaj zamieni stary element odpowiedzią)
+    LoadingElementId = "HiddenElement", //Id elementu który ma się pojawić podczas wykonywania zapytania (show)
+    HttpMethod = "GET", //Nazwa metody Http
+})

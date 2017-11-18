@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    //Taki kod nie jest indeksowany przez przeglądarki
+    //POST
+    $.ajax({
+        type: "POST",
+        url: "/some/url",
+        data: { name: "MyName", id: 1 }
+    }).done(function (response) {
+        //odpowiedź z serwera
+        alert(response);
+        })
+
+    //GET
+    $.getJSON("/ajax/tesst.json", function (response) {
+        alert(response);
+    })
+
+    //Mustache.js
+    //GET
+    $.getJSON("/ajax/data.json", function (data) {
+        var template = "<h1> {{firstName}} {{lastName}} </h1>";
+        var html = Mustache.to_html(template, data);
+        $('#someId').html(html);
+    })
+</script>

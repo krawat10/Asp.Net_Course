@@ -68,3 +68,10 @@ d:\Courses\ASPMVC\ASPMVC\obj\Debug\ASPMVC.csprojResolveAssemblyReference.cache
 d:\Courses\ASPMVC\ASPMVC\obj\Debug\ASPMVC.csproj.CoreCompileInputs.cache
 d:\Courses\ASPMVC\ASPMVC\obj\Debug\ASPMVC.dll
 d:\Courses\ASPMVC\ASPMVC\obj\Debug\ASPMVC.pdb
+d:\Courses\ASPMVC\ASPMVC\bin\Antlr3.Runtime.dll
+d:\Courses\ASPMVC\ASPMVC\bin\Newtonsoft.Json.dll
+d:\Courses\ASPMVC\ASPMVC\bin\System.Web.Optimization.dll
+d:\Courses\ASPMVC\ASPMVC\bin\WebGrease.dll
+d:\Courses\ASPMVC\ASPMVC\bin\Antlr3.Runtime.pdb
+d:\Courses\ASPMVC\ASPMVC\bin\Newtonsoft.Json.xml
+d:\Courses\ASPMVC\ASPMVC\bin\System.Web.Optimization.xml
