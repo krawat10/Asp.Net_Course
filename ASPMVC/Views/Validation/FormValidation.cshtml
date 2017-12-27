@@ -1,0 +1,82 @@
+﻿
+@*MODEL - Models.Question*@
+@{
+    ViewBag.Title = "FormValidation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>FormValidation</h2>
+@*Zdefiniowane klasy modelu*@
+@model ASPMVC.Models.Question
+
+@*Otworzenie formularza*@
+@using (Html.BeginForm("AddQuestion", "Validation"))
+{
+    //Tworzenie całych inputów bazując na modelu (i jego atrybutach)
+    //Atrybuty potrafią nie tylko walidować dane, ale zmieniać typ inputa, label itp.
+    @Html.EditorFor(m => m)
+
+    <input type="submit" value="Send" />
+}
+
+
+    @section styles{
+        <style>
+            /*Style które pojawiają się automatycznie, gdy jakiś input nie przeszedł walidacji ModelState*/
+            .field-validation-error{
+                color: red;
+                font-weight: bold;
+            }
+
+            .input-validation-error{
+                background: pink;
+                border: 1px solid red;
+            }
+        </style>
+        }
+    @*Bardziej niskopoziomowy formularz*@
+@using (Html.BeginForm("AddQuestion", "Validation"))
+{
+    <table>
+        <tr>
+            <td>Type a question:</td>
+            <td>@Html.TextBoxFor(m => m.QuestionText)</td>
+            @*Html helper odpowiedzialny za wyswietlanie ErrorMessage z atrybutow*@
+            <td>@Html.ValidationMessageFor(m => m.QuestionText)</td> 
+        </tr>
+        <tr>
+            <td>Type email:</td>
+            <td>@Html.TextBoxFor(m => m.Email)</td>
+            <td>@Html.ValidationMessageFor(m => m.Email)</td>
+        </tr>
+        <tr>
+            <td>Check, if you want a phone contact:</td>
+            <td>@Html.CheckBoxFor(m => m.PhonePreferred, new { @id = "phonePrefferedCheckbox"})</td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td>Type a phone number:</td>
+            <td>@Html.TextBoxFor(m => m.PhoneNumber, new { data_val_requirediftrue_boolprop = "phonePrefferedCheckbox" })</td>
+            <td>@Html.ValidationMessageFor(m => m.PhoneNumber)</td>
+        </tr>
+    </table>
+
+    <div>
+        @*Wyswietlanie zboiru komunikatow o bledach*@
+        @Html.ValidationSummary()
+    </div>
+
+    <input type="submit" value="Send" />
+
+    @*Jeśli chcemy również robić walidację po stronie klienta w Web.config należy dodać:
+            <add key="ClientValidationEnabled" value="true" />
+            <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+        Należy również mieć skrypty jquery.validate.*
+        Biblioteki te pozwalają walidować pola po stronie klienta korzystając z atrybutów html5.
+        Mamy również własny skrypt (RequiredIfTrue.js) który sprawdza zależność pól (jeśli jedno true to drugie wypełnione)
+        Skrypt jest sprzeżony z atrybutem RequiredIfTrueAttribute (patrz ./Validation/RequiredIfTrueAttribute)
+    *@
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/RequiredIfTrue.js"></script>
+}

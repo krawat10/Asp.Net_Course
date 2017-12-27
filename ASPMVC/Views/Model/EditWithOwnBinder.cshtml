@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "EditWithOwnBinder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EditWithOwnBinder</h2>
+
+<form action="/Model/EditWithOwnBinder" method="post">
+    <label for="name">Nazwa:</label>
+    <input type="text" name="Name" id="name" />
+    <label for="id">Id:</label>
+    <input type="text" name="Id" id="id" />
+    <label for="artist-name">Artysta:</label>
+    <input type="text" name="Artist.Name" id="artist-name" />
+    <br />
+    <label for="day">Dzień:</label>
+    <input type="text" name="Day" id="day" />
+    <label for="month">Miesiąc:</label>
+    <input type="text" name="Month" id="month" />
+    <label for="year">Rok:</label>
+    <input type="text" name="Year" id="year" />
+
+    <input type="submit" />
+</form>

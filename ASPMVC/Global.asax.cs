@@ -31,6 +31,10 @@ namespace ASPMVC
             //Zaaplikowanie filtra [TimerAttribiute] do każdej strony
             GlobalFilters.Filters.Add(new TimerAttribiute());
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //Zdefiniowanie własnego model bindera do bindowania danych na model w kontrolerach
+            //Możemy określić jaki binder ma obsługiwać jakie dane klasy
+            //ModelBinders.Binders.Add(typeof(Album), new AlbumModelBinder());
         }
 
         

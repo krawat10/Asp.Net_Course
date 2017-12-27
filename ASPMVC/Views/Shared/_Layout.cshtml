@@ -1,15 +1,19 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     @*Sekcja na skrypty (nie wymagana)*@
     @RenderSection("scripts", false);
+    @RenderSection("styles", false);
 </head>
 <body>
 
@@ -20,7 +24,7 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    
     <script src="~/Scripts/bootstrap.min.js"></script>
     
     @*tutaj możesz potem dodawać różne skrypty z poziomu zwykłych widoków*@

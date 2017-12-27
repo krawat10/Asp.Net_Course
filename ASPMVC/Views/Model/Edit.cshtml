@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>   
+
+<form action="/Model/Edit" method="post">
+    <label for="name">Nazwa:</label>
+    <input type="text" name="Name" id="name"/>
+    <label for="id">Id:</label>
+    <input type="text" name="Id" id="id"/>
+    <label for="artist-name">Artysta:</label>
+    <input type="text" name="Artist.Name" id="artist-name"/>
+    <input type="submit" />
+</form>
