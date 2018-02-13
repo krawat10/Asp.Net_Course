@@ -1,7 +1,9 @@
 ﻿using ASPMVC.App_Start;
+using ASPMVC.DAL;
 using ASPMVC.Infastructure;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -35,6 +37,11 @@ namespace ASPMVC
             //Zdefiniowanie własnego model bindera do bindowania danych na model w kontrolerach
             //Możemy określić jaki binder ma obsługiwać jakie dane klasy
             //ModelBinders.Binders.Add(typeof(Album), new AlbumModelBinder());
+
+            //Zdefiniowanie initalizera bazy danych. Bedzie on przy starcie aplikacji zapełniał baze danych
+            //testowymi polami zdefiniowanymi w 'ASPMVC.DAL.ProductsInitializer'.
+            //Kontekst bazy danych znajduje się w 'ASPMVC.DAL.ProductsContext'.
+            Database.SetInitializer<ProductsContext>(new ProductsInitializer());
         }
 
         

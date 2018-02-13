@@ -1,0 +1,22 @@
+﻿@model List<ASPMVC.Models.Question>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@foreach(var question in Model)
+{
+    <p>@Html.Raw(question.QuestionText)</p>
+}
+<br />
+<br />
+<div>
+    @using (Html.BeginForm("AddQuestion", "Security"))
+    {
+        @Html.TextBox(nameof(ASPMVC.Models.Question.QuestionText))
+        <input type="submit" value="Send" />
+    }
+</div>
+

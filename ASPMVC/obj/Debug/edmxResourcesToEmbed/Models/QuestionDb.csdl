@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbCourseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuestionText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customer" Relationship="DbCourseModel.QuestionCustomer" FromRole="Question" ToRole="Customer" />
+  </EntityType>
+  <EntityContainer Name="DbCourseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Questions" EntityType="Self.Question" />
+    <EntitySet Name="Customers" EntityType="DbCourseModel.Customer" />
+    <AssociationSet Name="QuestionCustomer" Association="DbCourseModel.QuestionCustomer">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adress" Type="String" Nullable="false" />
+    <NavigationProperty Name="Questions" Relationship="DbCourseModel.QuestionCustomer" FromRole="Customer" ToRole="Question" />
+  </EntityType>
+  <Association Name="QuestionCustomer">
+    <End Type="DbCourseModel.Question" Role="Question" Multiplicity="*" />
+    <End Type="DbCourseModel.Customer" Role="Customer" Multiplicity="1" />
+  </Association>
+</Schema>

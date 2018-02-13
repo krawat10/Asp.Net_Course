@@ -1,0 +1,54 @@
+﻿@model ASPMVC.Models.Counters
+@{
+    ViewBag.Title = "IncrementForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>IncrementForm</h2>
+
+
+
+@using (Html.BeginForm("IncrementStatic", "SaveState"))
+{
+<div>
+    Click counter.(Static) (per global application)
+    <input type="submit" value="Click!" />
+    <div>@Model.StaticCounter</div>
+</div>
+}
+
+@using (Html.BeginForm("IncrementApplication", "SaveState"))
+{
+    <div>
+        Click counter. (Application) (per global application)
+        <input type="submit" value="Click!" />
+        <div>@Model.ApplicationCounter</div>
+    </div>
+}
+
+@using (Html.BeginForm("IncrementSession", "SaveState"))
+{
+    <div>
+        Click counter.(Session) (per user in session)
+        <input type="submit" value="Click!" />
+        <div>@Model.SessionCounter</div>
+    </div>
+}
+
+@using (Html.BeginForm("IncrementCookie", "SaveState"))
+{
+    <div>
+        Click counter.(Cookie) (per user in cookie)
+        <input type="submit" value="Click!" />
+        <div>@Model.CookieCounter</div>
+    </div>
+}
+
+@using (Html.BeginForm("IncrementCache", "SaveState"))
+{
+    <div>
+        Click counter.(Cache) (per global application)
+        <input type="submit" value="Click!" />
+        <div>@Model.CacheCounter</div>
+    </div>
+}

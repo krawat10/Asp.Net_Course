@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "FormPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Normalne wysyłanie. Gdy odświerzymy stronę wynikową, formularz zostanie ponownie wysłany.</h2>
+@using (Html.BeginForm("PassTempDataNormal", "PostRedirectGet"))
+{
+    <p>Input data to pass to server</p>
+    <input type="text" name="paramtopass" />
+    <input value="Send" type="submit" />
+}
+
+    <h2>Wysyłanie wg. Post-Redirect-Get. Gdy odświerzymy stronę wynikową, formularz nie zostanie ponownie wysłany.</h2>
+@using (Html.BeginForm("PassTempDataPRG", "PostRedirectGet"))
+{
+    <p>Input data to pass to server</p>
+    <input type="text" name="paramtopass" />
+    <input value="Send" type="submit" />
+}

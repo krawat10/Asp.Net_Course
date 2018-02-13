@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "CacheAttribiute";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CacheAttribiute</h2>
+
+<div>
+    @*Dzięki cachowaniu strona jest zapamiętywana po stronie serwera i po każdym odświerzeniu strony
+    data będzie się zmieniać co pięć sekund (zwracana strona z pamięcia, a nie ciągle renderowana)*@
+    Aktualna godzina (cachowana): @DateTime.Now.ToLongTimeString()
+</div>
+
+<div>
+    @*true - zgadzamy sie aby helper korzystał z 'Dount cache' - omijanie cachowania*@
+    Aktualna godzina (nie-cachowana Dount): @Html.Action("DonutCaching", true)
+</div>

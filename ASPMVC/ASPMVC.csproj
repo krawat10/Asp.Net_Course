@@ -45,16 +45,57 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AntiXssLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\AntiXssLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="DevTrends.MvcDonutCaching, Version=1.3.0.0, Culture=neutral, PublicKeyToken=73c58d802958a09f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcDonutCaching.1.3.0\lib\net40\DevTrends.MvcDonutCaching.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\HtmlSanitizationLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -146,15 +187,34 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="DevTrends.MvcDonutCaching.README.txt" />
     <Content Include="Error.html" />
     <Content Include="Files\File.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\QuestionDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QuestionDb.Context.cs</LastGenOutput>
+      <DependentUpon>QuestionDb.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\QuestionDb.edmx.sql" />
+    <Content Include="Models\QuestionDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuestionDb.edmx</DependentUpon>
+      <LastGenOutput>QuestionDb.cs</LastGenOutput>
+    </Content>
     <Content Include="Poradnik.txt" />
     <Content Include="README.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Code\MyHelpers.cshtml" />
+    <EntityDeploy Include="Models\QuestionDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuestionDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QuestionDb.edmx.diagram">
+      <DependentUpon>QuestionDb.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -182,21 +242,58 @@
     <Compile Include="Controllers\ActionFiltersController.cs" />
     <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\BundlingMinificationController.cs" />
+    <Compile Include="Controllers\CustomersEntityDbController.cs" />
+    <Compile Include="Controllers\DBController.cs" />
     <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HTMLHelpersController.cs" />
     <Compile Include="Controllers\ModelController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
+    <Compile Include="Controllers\PostRedirectGetController.cs" />
     <Compile Include="Controllers\RoutingController.cs" />
+    <Compile Include="Controllers\SaveStateController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Controllers\SelectorsController.cs" />
     <Compile Include="Controllers\RouteAttribiuteController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="Controllers\ViewController.cs" />
+    <Compile Include="DAL\ProductsContext.cs" />
+    <Compile Include="DAL\ProductsInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Infastructure\AlbumModelBinder.cs" />
+    <Compile Include="Migrations\201801042228510_InitialCreate.cs" />
+    <Compile Include="Migrations\201801042228510_InitialCreate.Designer.cs">
+      <DependentUpon>201801042228510_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801042242283_AddProductCountry.cs" />
+    <Compile Include="Migrations\201801042242283_AddProductCountry.Designer.cs">
+      <DependentUpon>201801042242283_AddProductCountry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Counters.cs" />
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>QuestionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Producer.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\QuestionDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuestionDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuestionDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuestionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuestionDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuestionDb.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Validation\PriceAttribute.cs" />
     <Compile Include="Infastructure\TimerAttribiute.cs" />
     <Compile Include="Models\Album.cs" />
@@ -205,7 +302,9 @@
     <Compile Include="Models\MyModel.cs" />
     <Compile Include="Models\PalsValidation.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Question.cs">
+      <DependentUpon>QuestionDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\RequiredIfTrueAttribute.cs" />
   </ItemGroup>
@@ -242,6 +341,19 @@
     <Content Include="Views\Model\Edit.cshtml" />
     <Content Include="Views\Model\EditWithOwnBinder.cshtml" />
     <Content Include="Views\Validation\FormValidation.cshtml" />
+    <Content Include="Views\Db\DbFirst.cshtml" />
+    <Content Include="Views\Db\CodeFirst.cshtml" />
+    <Content Include="Views\Db\ShowProducerProducts.cshtml" />
+    <Content Include="Views\CustomersEntityDb\Create.cshtml" />
+    <Content Include="Views\CustomersEntityDb\Delete.cshtml" />
+    <Content Include="Views\CustomersEntityDb\Details.cshtml" />
+    <Content Include="Views\CustomersEntityDb\Edit.cshtml" />
+    <Content Include="Views\CustomersEntityDb\Index.cshtml" />
+    <Content Include="Views\PostRedirectGet\FormPage.cshtml" />
+    <Content Include="Views\PostRedirectGet\FormResult.cshtml" />
+    <Content Include="Views\SaveState\IncrementForm.cshtml" />
+    <Content Include="Views\SaveState\CacheAttribiute.cshtml" />
+    <Content Include="Views\Security\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -251,9 +363,21 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Account\" />
     <Folder Include="Views\BundlingMinification\" />
     <Folder Include="Views\Selectors\" />
     <Folder Include="Views\Store\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201801042228510_InitialCreate.resx">
+      <DependentUpon>201801042228510_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801042242283_AddProductCountry.resx">
+      <DependentUpon>201801042242283_AddProductCountry.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
