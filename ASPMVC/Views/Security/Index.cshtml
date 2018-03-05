@@ -17,6 +17,7 @@
     {
         @Html.TextBox(nameof(ASPMVC.Models.Question.QuestionText))
         <input type="submit" value="Send" />
+        @Html.AntiForgeryToken() //Adds hidden input. Post action (AddQuestion) should have [ValidateAntiForgeryToken] attribute.
     }
 </div>
 

@@ -100,3 +100,7 @@ d:\Courses\ASPMVC\ASPMVC\bin\Microsoft.Owin.xml
 d:\Courses\ASPMVC\ASPMVC\bin\Microsoft.Owin.Security.xml
 d:\Courses\ASPMVC\ASPMVC\bin\Microsoft.Owin.Security.Cookies.xml
 d:\Courses\ASPMVC\ASPMVC\bin\Microsoft.Owin.Security.OAuth.xml
+d:\Courses\ASPMVC\ASPMVC\bin\AntiXssLibrary.dll
+d:\Courses\ASPMVC\ASPMVC\bin\HtmlSanitizationLibrary.dll
+d:\Courses\ASPMVC\ASPMVC\bin\AntiXssLibrary.xml
+d:\Courses\ASPMVC\ASPMVC\bin\HtmlSanitizationLibrary.xml
