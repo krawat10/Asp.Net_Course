@@ -16,6 +16,7 @@ Wdrażanie aplikacji:
 		- Apache
 	Usługa hostingowa:
 		- Azure
+			
 
 	Paczka do wdrażania:
 		- kompilacja *.cs do *.dll (pliki CSHTML nie)

@@ -45,7 +45,10 @@ using System.Web.Mvc;
 /// Zabezpieczenie kontrolerów [Authorize]
 /// 
 /// 
-/// Zabezpieczenie publicznych metod - [NonAction]
+/// Zabezpieczenie publicznych metod - [NonAction] lub [ChildActionOnly] dla PartialViews
+/// 
+/// 
+/// 
 /// </summary>
 namespace ASPMVC.Controllers
 {
